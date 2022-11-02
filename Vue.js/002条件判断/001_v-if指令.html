@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="../js/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+           <p>a的值是{{a}}</p>
+           <p>b的值是{{b}}</p>
+           <p v-if="a<b">a小于b</p>
+        </div> 
+        
+        <script type="text/javascript">
+            new Vue({
+                el:'#app',
+                data() {
+                    return {
+                        a:100,
+                        b:200
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
