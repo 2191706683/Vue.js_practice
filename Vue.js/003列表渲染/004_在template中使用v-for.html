@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="../js/vue.js"></script>
+        <style>
+            ul{
+            list-style:none;
+            height:30px;
+            line-height:30px;}
+            li{
+            float:left;
+            margin:auto 30px;}
+            .item{
+            font-family:微软雅黑;
+            font-size:16px;
+            font-weight:600;
+            }
+            .separator:not(:last-child){
+            width:1px;
+            height:16px;
+            background:#999999; 
+            margin:7px auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+           <ul>
+                <template v-for="menu in menulist">
+                    <li class="item">{{menu}}</li>
+                    <li class="separator"></li>
+                </template>
+           </ul>
+        </div> 
+        
+        <script type="text/javascript">
+            new Vue({
+                el:'#app',
+                data() {
+                    return {
+                        menulist:['首页','闪购','生鲜','团购','全球购']
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
