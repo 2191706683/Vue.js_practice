@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="../js/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+           <p>姓名：{{fullName}}</p>
+        </div> 
+        
+        <script type="text/javascript">
+            var vm = new Vue({
+                el:'#app',
+                data() {
+                    return {
+                       surname:'韦',
+                       name:'小宝'
+                    }
+                },
+                computed:{
+                    fullName:{
+                        get(){
+                            return this.surname + this.name
+                        },
+                        set(value){
+                            this.surname = value.substr(0,1)
+                            this.name = value.substr(1)
+                        }
+                    }
+                }
+            })
+            vm.fullName='张无忌'
+        </script>
+    </body>
+</html>
