@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="../js/vue.js"></script>
+        <style>
+            body{
+            font-family:微软雅黑;
+            font-size:14px}
+            .title{
+            background: #f6f6f6;
+            font-size:18px;
+            }
+            .title,.content{
+            width:400px;
+            height:36px;
+            line-height:36px;
+            border: 1px solid #dddddd;}
+            .title:not(:first-child),.content{
+            border-top:none;}
+            .title div{
+            width:100px;
+            text-align:center;
+            float:left}
+            .content{
+            clear:both}
+            .content div{
+            width:100px;
+            text-align:center;
+            float:left}
+            p{
+            width:380px;
+            text-align:right;}
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <div class="title">
+                <div>商品名称</div>
+                <div>单品</div>
+                <div>数量</div>
+                <div>金额</div>
+            </div>
+            <div class="content" v-for="value in shop">
+                <div>{{value.name}}</div>
+                <div>{{value.price | twoDecimal}}</div>
+                <div>{{value.count}}</div>
+                <div>{{value.price * value.count | twoDecimal}}</div>
+            </div>
+            <p>合计：{{totalPrice | formatPrice('￥') }}</p>
+        </div> 
+        
+        <script type="text/javascript">
+            new Vue({
+                el:'#app',
+                data() {
+                    return {
+                        shop : [
+                            {//定义商品信息数组
+                                name : 'OPPO R15',
+                                price : 2999,
+                                count : 3
+                            },
+                            {
+                                name : '华为P20',
+                                price : 3699,
+                                count : 2
+                            }
+                        ]
+                    }
+                },
+                computed:{
+                    totalPrice(){
+                        var total = 0
+                        this.shop.forEach((item)=>{
+                            total += item.price*item.count
+                        })
+                        return total
+                    }
+                },
+                filters:{
+                    twoDecimal(value){
+                        return value.toFixed(2)
+                    },
+                    formatPrice(value,symbol){
+                        return symbol + value.toFixed(2)
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
