@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="../js/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+          <select v-model="type">
+            <option value="">请选择种类</option>
+            <option>手机</option>
+            <option>平板电脑</option>
+            <option>笔记本</option>
+          </select>
+          <p>选择的种类：{{type}}</p>
+        </div> 
+        
+        <script type="text/javascript">
+            new Vue({
+                el:'#app',
+                data() {
+                    return {
+                        type:'',
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

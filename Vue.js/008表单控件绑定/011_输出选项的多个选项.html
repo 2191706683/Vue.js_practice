@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="../js/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+          <p>选择喜欢的影片类型：</p>
+          <select v-model="type" multiple="multiple">
+            <option>武侠片</option>
+            <option>爱情片</option>
+            <option>动作片</option>
+            <option>喜剧片</option>
+            <option>恐怖片</option>
+          </select>
+          <p>选择的类型：{{type}}</p>
+        </div> 
+        
+        <script type="text/javascript">
+            new Vue({
+                el:'#app',
+                data() {
+                    return {
+                        type:[],
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
