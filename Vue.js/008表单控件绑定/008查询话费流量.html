@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="../js/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+          <h2>查话费查流量</h2>
+          <input type="radio" v-model="type" value="balance">
+          <label for="man">查话费</label>
+          <input type="radio" v-model="type" value="traffic">
+          <label for="woman">查流量</label>
+          <button @click="check">查询</button>
+          <p>{{msg}}</p>
+        </div> 
+        
+        <script type="text/javascript">
+            new Vue({
+                el:'#app',
+                data() {
+                    return {
+                        type:'',
+                        msg:''
+                    }
+                },
+                methods:{
+                    check(){
+                        if(this.type=='balance'){
+                            this.msg = '您的话费余额为6.66元'
+                        }else if(this.type=='traffic'){
+                            this.msg = '您的剩余流量为20兆'
+                        }else{
+                            this.msg = '请选择查询类别'
+                        }
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
